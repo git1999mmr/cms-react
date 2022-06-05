@@ -30,6 +30,7 @@ import './App.css';
 import { About } from './components/layout/About';
 import { Contact } from './components/layout/Contact';
 import { Privacy } from './components/layout/Privacy';
+import { Task } from './components/task/Task';
 
 const App = () => {
   useEffect(() => {
@@ -63,6 +64,7 @@ const App = () => {
           <Route path="profiles" element={<Profiles />} />
           <Route path="profile/:id" element={<Profile />} />
           <Route path="/files" element={<FilesUploadComponent />} />
+          <Route path="/status" element={<Task />} />
 
           <Route
             path="dashboard"

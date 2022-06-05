@@ -11,8 +11,9 @@ const storage = multer.diskStorage({
     cb(null, DIR);
   },
   filename: (req, file, cb) => {
-    const fileName = file.originalname.toLowerCase().split(' ').join('-');
-    cb(null, uuidv4() + '-' + fileName);
+    console.log('file is ===>', file.originalname);
+    const filename = file.originalname.toLowerCase().split(' ').join('-');
+    cb(null, uuidv4() + '-' + filename);
   }
 });
 var upload = multer({
@@ -41,11 +42,12 @@ var upload = multer({
 // Upload model
 
 router.post('/upload', upload.single('profileImg'), (req, res, next) => {
-  console.log('call file upload', req);
+  // console.log('call file upload', req);
   const url = req.protocol + '://' + req.get('host');
+  console.log('req===>', req);
   const upload = new Upload({
     _id: new mongoose.Types.ObjectId(),
-    name: req.body.name,
+    filename: req.body.name,
     profileImg: url + '/public/' + req.file.filename
   });
   upload
@@ -68,6 +70,7 @@ router.post('/upload', upload.single('profileImg'), (req, res, next) => {
 });
 router.get('/', (req, res, next) => {
   Upload.find().then((data) => {
+    res.render('upload', { title: 'File uploaded' });
     res.status(200).json({
       message: 'User list retrieved successfully!',
       upload: data

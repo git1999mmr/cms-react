@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 const axios = require('axios');
+
 const FileUploader = ({ onFileSelectError, onFileSelectSuccess }) => {
   const fileInput = useRef(null);
 
@@ -9,7 +10,7 @@ const FileUploader = ({ onFileSelectError, onFileSelectSuccess }) => {
     // handle validations
     const file = e.target.files[0];
     console.log('File log', file);
-    if (file.size > 1024)
+    if (file.size > 1000000)
       onFileSelectError({ error: 'File size cannot exceed more than 1MB' });
     else onFileSelectSuccess(file);
   };
@@ -26,7 +27,6 @@ const FileUploader = ({ onFileSelectError, onFileSelectSuccess }) => {
 };
 
 export const FilesUploadComponent = () => {
-  // console.log('selectedfile', selectedFile);
   const [selectedFile, setSelectedFile] = useState(null);
   const onSubmit = (e) => {
     e.preventDefault();
@@ -43,7 +43,12 @@ export const FilesUploadComponent = () => {
   return (
     <div className="container">
       <div className="row">
-        <form onSubmit={onSubmit}>
+        <form
+          onSubmit={onSubmit}
+          enctype="multipart/form-data"
+          action="/upload"
+          method="post"
+        >
           <h3>React File Upload</h3>
           <div className="form-group">
             <FileUploader
