@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Paper, TextField } from '@material-ui/core';
 import { Checkbox, Button } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import { addTask, getTasks, updateTask, deleteTask } from './taskServices';
 import '../../App.css';
@@ -9,15 +11,18 @@ export const Task = () => {
   const [currentTask, setCurrentTask] = useState('');
   const [tasks, setTasks] = useState([]);
 
-  useEffect(() => {
-    async function fetchTasks() {
-      try {
-        const { data } = await getTasks();
-        this.setState({ tasks: data });
-      } catch (error) {
-        console.log(error);
-      }
+  const fetchTasks = async () => {
+    try {
+      const data = await getTasks();
+      console.log('data====>', data.data);
+      setTasks({ tasks: data.data });
+      console.log('task====>');
+    } catch (error) {
+      console.log(error);
     }
+  };
+
+  useEffect(() => {
     fetchTasks();
   }, []);
 
@@ -116,3 +121,14 @@ export const Task = () => {
     </div>
   );
 };
+
+Task.propTypes = {
+  auth: PropTypes.object.isRequired,
+  task: PropTypes.string.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth
+});
+
+export default connect(mapStateToProps)(Task);
