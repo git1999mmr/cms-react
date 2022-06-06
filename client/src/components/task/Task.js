@@ -12,12 +12,14 @@ export const Task = () => {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
+    const datacp = [];
     try {
       const data = await getTasks();
       console.log('data====>', data.data);
-      setTasks({ tasks: data.data });
+      setTasks(data.data);
       console.log('task====>');
     } catch (error) {
+      console.log('data---->', datacp);
       console.log(error);
     }
   };
@@ -34,11 +36,11 @@ export const Task = () => {
     e.preventDefault();
     const originalTasks = tasks;
     try {
-      const { data } = await addTask({ task: currentTask });
+      const data = await addTask({ task: currentTask });
       const tasks = originalTasks;
-      tasks.push(data);
-      setTasks({ tasks });
-      setCurrentTask({ currentTask });
+      tasks.push(data.data);
+      setTasks(tasks);
+      setCurrentTask({ task: currentTask });
     } catch (error) {
       console.log(error);
     }
@@ -51,7 +53,7 @@ export const Task = () => {
       const index = tasks.findIndex((task) => task._id === currentTask);
       tasks[index] = { ...tasks[index] };
       tasks[index].completed = !tasks[index].completed;
-      setTasks({ tasks });
+      setTasks(tasks);
       await updateTask(currentTask, {
         completed: tasks[index].completed
       });
@@ -65,7 +67,7 @@ export const Task = () => {
     const originalTasks = tasks;
     try {
       const tasks = originalTasks.filter((task) => task._id !== currentTask);
-      setTasks({ tasks });
+      setTasks(tasks);
       await deleteTask(currentTask);
     } catch (error) {
       setTasks({ tasks: originalTasks });
@@ -101,21 +103,25 @@ export const Task = () => {
           </Button>
         </form>
         <div>
-          {tasks.map((task) => (
-            <Paper key={task._id} className="todo_flex task_container">
-              <Checkbox
-                checked={task.completed}
-                onClick={() => handleUpdate(task._id)}
-                color="primary"
-              />
-              <div className={task.completed ? 'task line_through' : 'task'}>
-                {task.task}
-              </div>
-              <Button onClick={() => handleDelete(task._id)} color="secondary">
-                delete
-              </Button>
-            </Paper>
-          ))}
+          {tasks &&
+            tasks.map((task) => (
+              <Paper key={task._id} className="todo_flex task_container">
+                <Checkbox
+                  checked={task.completed}
+                  onClick={() => handleUpdate(task._id)}
+                  color="primary"
+                />
+                <div className={task.completed ? 'task line_through' : 'task'}>
+                  {task.task}
+                </div>
+                <Button
+                  onClick={() => handleDelete(task._id)}
+                  color="secondary"
+                >
+                  delete
+                </Button>
+              </Paper>
+            ))}
         </div>
       </Paper>
     </div>
