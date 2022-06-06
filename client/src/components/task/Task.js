@@ -36,11 +36,14 @@ export const Task = () => {
     e.preventDefault();
     const originalTasks = tasks;
     try {
-      const data = await addTask({ task: currentTask });
+      const data = await addTask({
+        task: currentTask,
+        task_ts: new Date().toLocaleString()
+      });
       const tasks = originalTasks;
       tasks.push(data.data);
       setTasks(tasks);
-      setCurrentTask({ task: currentTask });
+      setCurrentTask([]); //[object, Object] cleared
     } catch (error) {
       console.log(error);
     }
@@ -91,7 +94,7 @@ export const Task = () => {
             value={currentTask}
             required={true}
             onChange={handleChange}
-            placeholder="Add New TO-DO"
+            placeholder="Add Date and Time"
           />
           <Button
             style={{ height: '40px' }}
@@ -111,6 +114,7 @@ export const Task = () => {
                   onClick={() => handleUpdate(task._id)}
                   color="primary"
                 />
+                <div> {task.task_ts}</div> <br />
                 <div className={task.completed ? 'task line_through' : 'task'}>
                   {task.task}
                 </div>

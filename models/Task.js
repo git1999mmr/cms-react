@@ -6,6 +6,10 @@ const taskSchema = new Schema({
     type: String,
     required: true
   },
+  task_ts: {
+    type: String,
+    required: true
+  },
   completed: {
     type: Boolean,
     default: false
