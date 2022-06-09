@@ -18,19 +18,19 @@ export const Contact = () => {
           fontWeight: '400'
         }}
       >
-        <h1 class="text-dark" style={{ fontWeight: '600' }}>
-          <i class="fa fa-building" aria-hidden="true"></i> Contact Details
+        <h1 className="text-dark" style={{ fontWeight: '600' }}>
+          <i className="fa fa-building" aria-hidden="true"></i> Contact Details
         </h1>
         <br />
-        <h4 class="text-info #nav_next" style={{ fontWeight: '400' }}>
+        <h4 className="text-info #nav_next" style={{ fontWeight: '400' }}>
           E-mail : <Link to=""> rcms@gmail.com </Link>
         </h4>
         <br />
-        <h4 class="text-info" style={{ fontWeight: '400' }}>
+        <h4 className="text-info" style={{ fontWeight: '400' }}>
           Mobile : 9361612287
         </h4>
         <br />
-        <h4 class="text-info" style={{ fontWeight: '400' }}>
+        <h4 className="text-info" style={{ fontWeight: '400' }}>
           Address :
           <Link id="nav_next" to="">
             Millers Rd, Vasanth Nagar, Bengaluru, Karnataka 560051

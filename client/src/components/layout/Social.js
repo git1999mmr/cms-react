@@ -13,7 +13,7 @@ export const Social = () => {
         fontWeight: '800'
       }}
     >
-      <div class="col-lg-6 col-md-9 col-sm-12">
+      <div className="col-lg-6 col-md-9 col-sm-12">
         <div id="con7">
           <h3 id="c1" style={{ fontSize: '150%', whiteSpace: 'nowrap' }}>
             Follow Us On Social media
@@ -21,33 +21,33 @@ export const Social = () => {
           <a
             id="nav_next"
             href="https://www.facebook.com/"
-            class="nav-link"
+            className="nav-link"
             target="_blanc"
           >
-            <i class="fab fa-facebook-f"></i>{' '}
+            <i className="fab fa-facebook-f"></i>{' '}
           </a>
           <a
             id="nav_next"
             href="https://twitter.com/?lang=en"
-            class="nav-link"
+            className="nav-link"
             target="_blanc"
           >
-            <i class="fab fa-twitter"></i>{' '}
+            <i className="fab fa-twitter"></i>{' '}
           </a>
           <a
             id="nav_next"
             href="https://www.instagram.com/"
-            class="nav-link"
+            className="nav-link"
             target="_blanc"
           >
-            <i class="fab fa-instagram"></i>{' '}
+            <i className="fab fa-instagram"></i>{' '}
           </a>
           <a
             id="nav_next"
             href="https://www.linkedin.com/login"
-            class="nav-link"
+            className="nav-link"
           >
-            <i class="fab fa-linkedin"></i>{' '}
+            <i className="fab fa-linkedin"></i>{' '}
           </a>
         </div>
       </div>

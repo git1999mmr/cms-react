@@ -11,7 +11,7 @@ const userSchema = new Schema(
     }
   },
   {
-    collection: 'userprofile'
+    collection: 'progress'
   }
 );
-module.exports = mongoose.model('Userprofile', userSchema);
+module.exports = mongoose.model('progress', userSchema);

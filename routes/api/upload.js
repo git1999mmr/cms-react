@@ -68,6 +68,7 @@ router.post('/upload', upload.single('profileImg'), (req, res, next) => {
         });
     });
 });
+
 router.get('/', (req, res, next) => {
   Upload.find().then((data) => {
     res.render('upload', { title: 'File uploaded' });

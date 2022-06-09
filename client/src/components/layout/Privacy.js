@@ -4,7 +4,7 @@ export const Privacy = () => {
   return (
     <Fragment>
       <h1
-        class="text-dark text-success"
+        className="text-dark text-success"
         style={{
           marginTop: '7%',
           marginLeft: '10%',
@@ -13,13 +13,13 @@ export const Privacy = () => {
         }}
       >
         <i
-          class="fa fa-building"
+          className="fa fa-building"
           aria-hidden="true"
           style={{ padding: '1%' }}
         ></i>
         Privacy Policy for Construction Management System
       </h1>
-      <div class="text-dark container" style={{ marginTop: '1%' }}>
+      <div className="text-dark container" style={{ marginTop: '1%' }}>
         <p className="p">
           At Construction Management System, accessible from
           https://git1999mmr.github.io/CMS/, one of our main priorities is the

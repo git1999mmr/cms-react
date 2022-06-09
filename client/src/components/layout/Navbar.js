@@ -8,12 +8,6 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
   const authLinks = (
     <ul>
       <li>
-        <Link to="/files">Projects</Link>
-      </li>
-      <li>
-        <Link to="/status">Status</Link>
-      </li>
-      <li>
         <Link to="/posts">Posts & Comments</Link>
       </li>
       <li>
@@ -56,7 +50,7 @@ const Navbar = ({ auth: { isAuthenticated }, logout }) => {
       <h1 style={{ fontSize: '2rem' }}>
         <Link to="/">
           <i
-            class="fa fa-building"
+            className="fa fa-building"
             aria-hidden="true"
             style={{ fontSize: '3rem' }}
           ></i>{' '}

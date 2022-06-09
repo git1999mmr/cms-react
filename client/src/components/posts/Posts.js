@@ -12,7 +12,9 @@ const Posts = ({ getPosts, post: { posts } }) => {
 
   return (
     <section className="container">
-      <h1 className="large text-primary">Posts</h1>
+      <h1 className="large text-primary" style={{ fontWeight: 'bold' }}>
+        Posts & Comments
+      </h1>
       <p className="lead">
         <i className="fas fa-user" /> Welcome to the community
       </p>

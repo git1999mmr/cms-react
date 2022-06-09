@@ -3,7 +3,7 @@ export const About = () => {
   return (
     <div>
       <h1
-        class="text-dark text-success"
+        className="text-dark text-success"
         style={{
           marginTop: '10%',
           marginLeft: '10%',
@@ -11,10 +11,10 @@ export const About = () => {
           fontWeight: '700'
         }}
       >
-        <i class="fa fa-building" aria-hidden="true"></i> Construction
+        <i className="fa fa-building" aria-hidden="true"></i> Construction
         Management System
       </h1>
-      <div class="text-dark container">
+      <div className="text-dark container">
         <h2
           style={{
             textAlign: 'left',
@@ -225,94 +225,94 @@ export const About = () => {
           {' '}
           Our Clients :
         </h2>
-        <section class="container" style={{ marginTop: '1%' }}>
+        <section className="container" style={{ marginTop: '1%' }}>
           <br />
-          <div class="profile-grid my-1">
-            <div class="profile-top bg-primary p-2">
+          <div className="profile-grid my-1">
+            <div className="profile-top bg-primary p-2">
               <img
-                class="round-img my-1"
+                className="round-img my-1"
                 src="https://th.bing.com/th/id/OIP.EZyzkVh-vtMs9ob4t0xyVgHaE7?pid=ImgDet&rs=1"
                 alt=""
               />
-              <h1 class="large">Clement Sachein</h1>
-              <p class="lead">Architect at BR builders (CEO)</p>
+              <h1 className="large">Clement Sachein</h1>
+              <p className="lead">Architect at BR builders (CEO)</p>
               <p>Bangalore</p>
-              <div class="icons my-1">
+              <div className="icons my-1">
                 <a
                   href="https://www.google.co.in"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="fas fa-globe fa-2x"></i>
+                  <i className="fas fa-globe fa-2x"></i>
                 </a>
                 <a
                   href="https://twitter.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="fab fa-twitter fa-2x"></i>
+                  <i className="fab fa-twitter fa-2x"></i>
                 </a>
                 <a
                   href="https://www.facebook.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="fab fa-facebook fa-2x"></i>
+                  <i className="fab fa-facebook fa-2x"></i>
                 </a>
                 <a
                   href="https://www.linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="fab fa-linkedin fa-2x"></i>
+                  <i className="fab fa-linkedin fa-2x"></i>
                 </a>
                 <a
                   href="https://www.youtube.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="fab fa-youtube fa-2x"></i>
+                  <i className="fab fa-youtube fa-2x"></i>
                 </a>
                 <a
                   href="https://www.instagram.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="fab fa-instagram fa-2x"></i>
+                  <i className="fab fa-instagram fa-2x"></i>
                 </a>
               </div>
             </div>
 
-            <div class="profile-about bg-light p-2">
-              <h2 class="text-primary">Clement's bio</h2>
+            <div className="profile-about bg-light p-2">
+              <h2 className="text-primary">Clement's bio</h2>
               <p>
                 I have been working as an Architect in Br builders pvt. ltd. I
                 have designed and executed plenty of buildings at affordable
                 costs with good quality.
               </p>
-              <div class="line"></div>
-              <h2 class="text-primary">Skill Set</h2>
-              <div class="skills">
-                <div class="p-1">
-                  <i class="fa fa-check"></i> Object Oriented Design and
+              <div className="line"></div>
+              <h2 className="text-primary">Skill Set</h2>
+              <div className="skills">
+                <div className="p-1">
+                  <i className="fa fa-check"></i> Object Oriented Design and
                   Analysis
                 </div>
-                <div class="p-1">
-                  <i class="fa fa-check"></i> Relational Design and Analysis
+                <div className="p-1">
+                  <i className="fa fa-check"></i> Relational Design and Analysis
                 </div>
-                <div class="p-1">
-                  <i class="fa fa-check"></i> XML based integration technologies
+                <div className="p-1">
+                  <i className="fa fa-check"></i> XML based integration technologies
                 </div>
-                <div class="p-1">
-                  <i class="fa fa-check"></i> Target programming language
+                <div className="p-1">
+                  <i className="fa fa-check"></i> Target programming language
                 </div>
               </div>
             </div>
 
-            <div class="profile-exp bg-white p-2">
-              <h2 class="text-primary">Experience</h2>
+            <div className="profile-exp bg-white p-2">
+              <h2 className="text-primary">Experience</h2>
               <div>
-                <h3 class="text-dark">BR builders</h3>
+                <h3 className="text-dark">BR builders</h3>
                 <p>Oct 2017 - Current</p>
                 <p>
                   <strong>Position: </strong>Architect
@@ -325,7 +325,7 @@ export const About = () => {
                 </p>
               </div>
               <div>
-                <h3 class="text-dark">SunSet builders</h3>
+                <h3 className="text-dark">SunSet builders</h3>
                 <p>Nov 2014 - Nov 2017</p>
                 <p>
                   <strong>Position: </strong>Senior Engineer
@@ -338,8 +338,8 @@ export const About = () => {
               </div>
             </div>
 
-            <div class="profile-edu bg-white p-2">
-              <h2 class="text-primary">Education</h2>
+            <div className="profile-edu bg-white p-2">
+              <h2 className="text-primary">Education</h2>
               <div>
                 <h3>IIT Madras</h3>
                 <p>
@@ -355,11 +355,11 @@ export const About = () => {
               </div>
             </div>
 
-            <div class="profile-github">
-              <h2 class="text-primary my-1">
-                <i class="fab fa-github"></i> Github Repos
+            <div className="profile-github">
+              <h2 className="text-primary my-1">
+                <i className="fab fa-github"></i> Github Repos
               </h2>
-              <div class="repo bg-white p-1 my-1">
+              <div className="repo bg-white p-1 my-1">
                 <div>
                   <h4>
                     <a href="../" target="_blank" rel="noopener noreferrer">
@@ -373,100 +373,100 @@ export const About = () => {
                 </div>
                 <div>
                   <ul>
-                    <li class="badge badge-primary">Stars: 44</li>
-                    <li class="badge badge-dark">Watchers: 60</li>
-                    <li class="badge badge-light">Forks: 5</li>
+                    <li className="badge badge-primary">Stars: 44</li>
+                    <li className="badge badge-dark">Watchers: 60</li>
+                    <li className="badge badge-light">Forks: 5</li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <div class="container" style={{ marginTop: '1%' }}>
+        <div className="container" style={{ marginTop: '1%' }}>
           <br />
-          <div class="profile-grid my-1">
-            <div class="profile-top bg-primary p-2">
+          <div className="profile-grid my-1">
+            <div className="profile-top bg-primary p-2">
               <img
-                class="round-img my-1"
+                className="round-img my-1"
                 src="https://www.prgus.com/blog-images/20160128082120_shutterstock_154000451.jpg"
                 alt=""
               />
-              <h1 class="large">Mark Colin</h1>
-              <p class="lead">Architect at Prime builders (CEO)</p>
+              <h1 className="large">Mark Colin</h1>
+              <p className="lead">Architect at Prime builders (CEO)</p>
               <p>Chennai</p>
-              <div class="icons my-1">
+              <div className="icons my-1">
                 <a
                   href="https://www.google.co.in"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="fas fa-globe fa-2x"></i>
+                  <i className="fas fa-globe fa-2x"></i>
                 </a>
                 <a
                   href="https://twitter.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="fab fa-twitter fa-2x"></i>
+                  <i className="fab fa-twitter fa-2x"></i>
                 </a>
                 <a
                   href="https://www.facebook.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="fab fa-facebook fa-2x"></i>
+                  <i className="fab fa-facebook fa-2x"></i>
                 </a>
                 <a
                   href="https://www.linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="fab fa-linkedin fa-2x"></i>
+                  <i className="fab fa-linkedin fa-2x"></i>
                 </a>
                 <a
                   href="https://www.youtube.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="fab fa-youtube fa-2x"></i>
+                  <i className="fab fa-youtube fa-2x"></i>
                 </a>
                 <a
                   href="https://www.instagram.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <i class="fab fa-instagram fa-2x"></i>
+                  <i className="fab fa-instagram fa-2x"></i>
                 </a>
               </div>
             </div>
 
-            <div class="profile-about bg-light p-2">
-              <h2 class="text-primary">Colin's bio</h2>
+            <div className="profile-about bg-light p-2">
+              <h2 className="text-primary">Colin's bio</h2>
               <p>
                 I have been working as an Architect in Prime builders pvt. ltd.
                 I have designed and executed plenty of buildings and got good
                 hands on experience in the field of construction.
               </p>
-              <div class="line"></div>
-              <h2 class="text-primary">Skill Set</h2>
-              <div class="skills">
-                <div class="p-1">
-                  <i class="fa fa-check"></i> Object Oriented Design and
+              <div className="line"></div>
+              <h2 className="text-primary">Skill Set</h2>
+              <div className="skills">
+                <div className="p-1">
+                  <i className="fa fa-check"></i> Object Oriented Design and
                   Analysis
                 </div>
-                <div class="p-1">
-                  <i class="fa fa-check"></i> Relational Design and Analysis
+                <div className="p-1">
+                  <i className="fa fa-check"></i> Relational Design and Analysis
                 </div>
-                <div class="p-1">
-                  <i class="fa fa-check"></i> Target programming language
+                <div className="p-1">
+                  <i className="fa fa-check"></i> Target programming language
                 </div>
               </div>
             </div>
 
-            <div class="profile-exp bg-white p-2">
-              <h2 class="text-primary">Experience</h2>
+            <div className="profile-exp bg-white p-2">
+              <h2 className="text-primary">Experience</h2>
               <div>
-                <h3 class="text-dark">Prime builders</h3>
+                <h3 className="text-dark">Prime builders</h3>
                 <p>Oct 2018 - Current</p>
                 <p>
                   <strong>Position: </strong>Architect
@@ -478,7 +478,7 @@ export const About = () => {
                 </p>
               </div>
               <div>
-                <h3 class="text-dark">Dropie builders</h3>
+                <h3 className="text-dark">Dropie builders</h3>
                 <p>Nov 2014 - Nov 2017</p>
                 <p>
                   <strong>Position: </strong>Assistant Architect
@@ -491,8 +491,8 @@ export const About = () => {
               </div>
             </div>
 
-            <div class="profile-edu bg-white p-2">
-              <h2 class="text-primary">Education</h2>
+            <div className="profile-edu bg-white p-2">
+              <h2 className="text-primary">Education</h2>
               <div>
                 <h3>British University</h3>
                 <p>
@@ -508,11 +508,11 @@ export const About = () => {
               </div>
             </div>
 
-            <div class="profile-github">
-              <h2 class="text-primary my-1">
-                <i class="fab fa-github"></i> Github Repos
+            <div className="profile-github">
+              <h2 className="text-primary my-1">
+                <i className="fab fa-github"></i> Github Repos
               </h2>
-              <div class="repo bg-white p-1 my-1">
+              <div className="repo bg-white p-1 my-1">
                 <div>
                   <h4>
                     <a href="../" target="_blank" rel="noopener noreferrer">
@@ -527,9 +527,9 @@ export const About = () => {
                 </div>
                 <div>
                   <ul>
-                    <li class="badge badge-primary">Stars: 40</li>
-                    <li class="badge badge-dark">Watchers: 40</li>
-                    <li class="badge badge-light">Forks: 3</li>
+                    <li className="badge badge-primary">Stars: 40</li>
+                    <li className="badge badge-dark">Watchers: 40</li>
+                    <li className="badge badge-light">Forks: 3</li>
                   </ul>
                 </div>
               </div>

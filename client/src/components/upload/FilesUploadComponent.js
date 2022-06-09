@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
 const axios = require('axios');
 
 const FileUploader = ({ onFileSelectError, onFileSelectSuccess }) => {
@@ -26,30 +27,36 @@ const FileUploader = ({ onFileSelectError, onFileSelectSuccess }) => {
   );
 };
 
-export const FilesUploadComponent = () => {
+export const FilesUploadComponent = (_profileImg, _auth) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log('2');
     const formData = new FormData();
     formData.append('profileImg', selectedFile);
     //formData.append('profileImg', e.target.value);
     console.log('3');
-    axios.post('http://localhost:5000/api/upload', formData, {}).then((res) => {
-      console.log('4');
-      console.log(res);
-    });
+    axios
+      .post('http://localhost:5000/api/upload', formData, {})
+      .then((res) => {});
   };
   return (
-    <div className="container">
+    <div className="container" style={{ marginTop: '1%', marginBottom: '1%' }}>
       <div className="row">
         <form
           onSubmit={onSubmit}
-          enctype="multipart/form-data"
+          encType="multipart/form-data"
           action="/upload"
           method="post"
         >
-          <h3>React File Upload</h3>
+          <h3
+            style={{
+              fontSize: '2rem',
+              color: 'darkblue',
+              fontWeight: 'bold'
+            }}
+          >
+            Task Upload
+          </h3>
           <div className="form-group">
             <FileUploader
               onFileSelectSuccess={(file) => setSelectedFile(file)}
@@ -68,8 +75,8 @@ export const FilesUploadComponent = () => {
 };
 
 FilesUploadComponent.propTypes = {
-  auth: PropTypes.object.isRequired,
-  profileImg: PropTypes.object.isRequired
+  auth: PropTypes.object,
+  profileImg: PropTypes.object
 };
 
 const mapStateToProps = (state) => ({

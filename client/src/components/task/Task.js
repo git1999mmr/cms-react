@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Paper, TextField } from '@material-ui/core';
+import { Paper, TextareaAutosize } from '@material-ui/core';
 import { Checkbox, Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import { addTask, getTasks, updateTask, deleteTask } from './taskServices';
 import '../../App.css';
 
@@ -12,14 +11,10 @@ export const Task = () => {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
-    const datacp = [];
     try {
       const data = await getTasks();
-      console.log('data====>', data.data);
       setTasks(data.data);
-      console.log('task====>');
     } catch (error) {
-      console.log('data---->', datacp);
       console.log(error);
     }
   };
@@ -27,7 +22,6 @@ export const Task = () => {
   useEffect(() => {
     fetchTasks();
   }, []);
-
   const handleChange = (e) => {
     setCurrentTask(e.target.value);
   };
@@ -79,33 +73,52 @@ export const Task = () => {
   };
 
   return (
-    <div className="todo_app todo_flex">
+    <div
+      className="todo_app todo_flex"
+      style={{
+        marginTop: '5%'
+      }}
+    >
       <Paper elevation={3} className="todo_container">
-        <div className="todo_heading">TO-DO</div>
+        <div className="todo_heading">Progress List</div>
         <form
           onSubmit={handleSubmit}
           className="todo_flex"
-          style={{ margin: '15px 0' }}
+          style={{ margin: '10px 0' }}
         >
-          <TextField
+          <TextareaAutosize
+            className="todo_field"
             variant="outlined"
-            size="small"
-            style={{ width: '80%' }}
+            size="largest"
+            style={{
+              width: '100%',
+              height: '300px',
+              fontSize: '1.5rem',
+              padding: '0.5%',
+              overflow: 'scroll'
+            }}
             value={currentTask}
             required={true}
             onChange={handleChange}
-            placeholder="Add Date and Time"
+            placeholder="Add your progress here"
           />
           <Button
-            style={{ height: '40px' }}
+            style={{
+              height: '40px',
+              backgroundColor: 'yellow',
+              padding: '3%',
+              margin: '1%',
+              fontWeight: 'bold',
+              fontSize: '1rem'
+            }}
             color="primary"
             variant="outlined"
             type="submit"
           >
-            Add task
+            Add progress
           </Button>
         </form>
-        <div>
+        <div style={{ fontWeight: 'light' }}>
           {tasks &&
             tasks.map((task) => (
               <Paper key={task._id} className="todo_flex task_container">
@@ -121,6 +134,7 @@ export const Task = () => {
                 <Button
                   onClick={() => handleDelete(task._id)}
                   color="secondary"
+                  style={{ fontWeight: 'bold' }}
                 >
                   delete
                 </Button>
@@ -133,8 +147,7 @@ export const Task = () => {
 };
 
 Task.propTypes = {
-  auth: PropTypes.object.isRequired,
-  task: PropTypes.string.isRequired
+  auth: PropTypes.object
 };
 
 const mapStateToProps = (state) => ({
