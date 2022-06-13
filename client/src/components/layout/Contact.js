@@ -32,9 +32,13 @@ export const Contact = () => {
         <br />
         <h4 className="text-info" style={{ fontWeight: '400' }}>
           Address :
-          <Link id="nav_next" to="">
-            Millers Rd, Vasanth Nagar, Bengaluru, Karnataka 560051
-          </Link>
+          <a
+            href="https://www.google.com/maps?q=1st+Ave,+Adyar,+Chennai,+Tamil+Nadu+600020&rlz=1C1GCEA_enIN998IN998&um=1&ie=UTF-8&sa=X&ved=2ahUKEwjl9uDRmqn4AhX--jgGHTrCBccQ_AUoAXoECAEQAw"
+            target="_blank"
+            rel="noreferrer"
+          >
+            1st Ave, Adyar, Chennai, Tamil Nadu 600020
+          </a>
         </h4>
         <br />
         <h4 style={{ fontWeight: '400' }}>

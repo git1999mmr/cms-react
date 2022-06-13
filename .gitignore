@@ -4,3 +4,6 @@ config/default.json
 client/build
 client/.eslintcache
 public/
+package-lock.json
+models/PostBang.js
+routes/api/posts_bang.js

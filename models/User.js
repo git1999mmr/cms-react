@@ -14,6 +14,21 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  role: {
+    type: String,
+    required: false,
+    default: 'user'
+  },
+  desc: {
+    type: String,
+    required: false,
+    default: 'Mason'
+  },
+  location: {
+    type: String,
+    required: false,
+    default: 'chennai'
+  },
   avatar: {
     type: String
   },

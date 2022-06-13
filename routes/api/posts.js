@@ -27,6 +27,8 @@ router.post(
         text: req.body.text,
         name: user.name,
         avatar: user.avatar,
+        role: user.role,
+        location: user.location,
         user: req.user.id
       });
 
@@ -169,6 +171,8 @@ router.post(
         text: req.body.text,
         name: user.name,
         avatar: user.avatar,
+        role: user.role,
+        location: user.location,
         user: req.user.id
       };
 

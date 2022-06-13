@@ -17,8 +17,8 @@ const taskSchema = new Schema(
     }
   },
   {
-    collection: 'progress'
+    collection: 'progress_bang'
   }
 );
 
-module.exports = mongoose.model('progress', taskSchema);
+module.exports = mongoose.model('progress_bang', taskSchema);

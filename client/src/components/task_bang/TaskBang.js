@@ -3,10 +3,10 @@ import { Paper, TextareaAutosize } from '@material-ui/core';
 import { Checkbox, Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addTask, getTasks, updateTask, deleteTask } from './taskServices';
+import { addTask, getTasks, updateTask, deleteTask } from './taskServices_bang';
 import '../../App.css';
 
-export const Task = () => {
+export const TaskBang = () => {
   const [currentTask, setCurrentTask] = useState('');
   const [tasks, setTasks] = useState([]);
 
@@ -80,7 +80,7 @@ export const Task = () => {
       }}
     >
       <Paper elevation={3} className="todo_container">
-        <div className="todo_heading">Progress List</div>
+        <div className="todo_heading">Progress List </div>
         <form
           onSubmit={handleSubmit}
           className="todo_flex"
@@ -189,7 +189,7 @@ export const TaskList = () => {
   );
 };
 
-Task.propTypes = {
+TaskBang.propTypes = {
   auth: PropTypes.object
 };
 
@@ -197,4 +197,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(Task);
+export default connect(mapStateToProps)(TaskBang);

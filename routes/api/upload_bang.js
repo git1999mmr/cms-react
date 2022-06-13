@@ -4,7 +4,7 @@ let express = require('express'),
   uuidv4 = require('uuid/v4'),
   router = express.Router();
 const DIR = './public/';
-const Upload = require('../../models/Upload');
+const UploadBang = require('../../models/UploadBang');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
     cb(null, uuidv4() + '-' + filename);
   }
 });
-var upload = multer({
+var upload_multer = multer({
   storage: storage,
   fileFilter: (req, file, cb) => {
     if (
@@ -41,36 +41,40 @@ var upload = multer({
 });
 // Upload model
 
-router.post('/upload', upload.single('profileImg'), (req, res, next) => {
-  // console.log('call file upload', req);
-  const url = req.protocol + '://' + req.get('host');
-  console.log('req===>', req);
-  const upload = new Upload({
-    _id: new mongoose.Types.ObjectId(),
-    filename: req.body.name,
-    profileImg: url + '/public/' + req.file.filename
-  });
-  upload
-    .save()
-    .then((result) => {
-      res.status(201).json({
-        message: 'User registered successfully!',
-        userCreated: {
-          _id: result._id,
-          profileImg: result.profileImg
-        }
-      });
-    })
-    .catch((err) => {
-      console.log(err),
-        res.status(500).json({
-          error: err
-        });
+router.post(
+  '/upload_bang',
+  upload_multer.single('profileImg'),
+  (req, res, next) => {
+    // console.log('call file upload', req);
+    const url = req.protocol + '://' + req.get('host');
+    console.log('req===>', req);
+    const upload = new UploadBang({
+      _id: new mongoose.Types.ObjectId(),
+      filename: req.body.name,
+      profileImg: url + '/public/' + req.file.filename
     });
-});
+    upload
+      .save()
+      .then((result) => {
+        res.status(201).json({
+          message: 'Userbglr registered successfully!',
+          userCreated: {
+            _id: result._id,
+            profileImg: result.profileImg
+          }
+        });
+      })
+      .catch((err) => {
+        console.log(err),
+          res.status(500).json({
+            error: err
+          });
+      });
+  }
+);
 
 router.get('/', (req, res, next) => {
-  Upload.find().then((data) => {
+  UploadBang.find().then((data) => {
     res.status(200).json({
       upload: data
     });

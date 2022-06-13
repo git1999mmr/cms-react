@@ -11,7 +11,7 @@ const userSchema = new Schema(
     }
   },
   {
-    collection: 'tasks'
+    collection: 'tasks_bang'
   }
 );
-module.exports = mongoose.model('tasks', userSchema);
+module.exports = mongoose.model('UploadBang', userSchema);

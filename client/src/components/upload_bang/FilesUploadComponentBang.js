@@ -6,7 +6,7 @@ import { getUploads } from './uploadServices';
 
 const axios = require('axios');
 
-const FileUploader = ({ onFileSelectError, onFileSelectSuccess }) => {
+const FileUploaderBang = ({ onFileSelectError, onFileSelectSuccess }) => {
   const fileInput = useRef(null);
 
   const handleFileInput = (e) => {
@@ -29,7 +29,7 @@ const FileUploader = ({ onFileSelectError, onFileSelectSuccess }) => {
   );
 };
 
-export const FilesUploadComponent = (_profileImg, _auth) => {
+export const FilesUploadComponentBang = (_profileImg, _auth) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const onSubmit = (e) => {
     e.preventDefault();
@@ -37,9 +37,9 @@ export const FilesUploadComponent = (_profileImg, _auth) => {
     formData.append('profileImg', selectedFile);
     //formData.append('profileImg', e.target.value);
     axios
-      .post('http://localhost:5000/api/upload', formData, {})
+      .post('http://localhost:5000/api/upload_bang', formData, {})
       .then((res) => {});
-    console.log('Success');
+    console.log('success');
   };
   return (
     <div className="container" style={{ marginTop: '1%', marginBottom: '1%' }}>
@@ -47,7 +47,7 @@ export const FilesUploadComponent = (_profileImg, _auth) => {
         <form
           onSubmit={onSubmit}
           encType="multipart/form-data"
-          action="/upload"
+          action="/upload_bang"
           method="post"
         >
           <h3
@@ -60,7 +60,7 @@ export const FilesUploadComponent = (_profileImg, _auth) => {
             Task Upload
           </h3>
           <div className="form-group">
-            <FileUploader
+            <FileUploaderBang
               onFileSelectSuccess={(file) => setSelectedFile(file)}
               onFileSelectError={({ error }) => alert(error)}
             />
@@ -77,14 +77,14 @@ export const FilesUploadComponent = (_profileImg, _auth) => {
 };
 
 // Upload List
-export const UploadList = () => {
-  const [uploadlist, setUploadlist] = useState([]);
+export const UploadListBang = () => {
+  const [uploadListBang, setUploadlistBang] = useState([]);
 
   const fetchTasks = async () => {
     try {
       const data = await getUploads();
       console.log('data === > ', data);
-      setUploadlist(data.data.upload);
+      setUploadlistBang(data.data.upload);
     } catch (error) {
       console.log(error);
     }
@@ -105,8 +105,8 @@ export const UploadList = () => {
         <div className="todo_heading">Uploads List</div>
 
         <div style={{ fontWeight: 'light' }}>
-          {uploadlist &&
-            uploadlist.map((upload) => (
+          {uploadListBang &&
+            uploadListBang.map((upload) => (
               <Paper key={upload._id} className="todo_flex task_container">
                 <div>
                   <a href={upload.profileImg} target="_blank" rel="noreferrer">
@@ -122,7 +122,7 @@ export const UploadList = () => {
   );
 };
 
-FilesUploadComponent.propTypes = {
+FilesUploadComponentBang.propTypes = {
   auth: PropTypes.object,
   profileImg: PropTypes.object
 };
@@ -131,4 +131,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps)(FilesUploadComponent);
+export default connect(mapStateToProps)(FilesUploadComponentBang);
