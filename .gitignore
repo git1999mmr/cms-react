@@ -1,9 +1,8 @@
 node_modules/
-# config/production.json
-# config/default.json
-# client/build
-# client/.eslintcache
-# public/
-# package-lock.json
-models/PostBang.js
-routes/api/posts_bang.js
+client/node_modules/
+config/production.json
+config/default.json
+client/build
+client/.eslintcache
+client/src/package-lock.json
+package-lock.json

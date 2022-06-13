@@ -31,7 +31,6 @@ app.use('/api/users', require('./routes/api/users'));
 app.use('/api/auth', require('./routes/api/auth'));
 app.use('/api/profile', require('./routes/api/profile'));
 app.use('/api/posts', require('./routes/api/posts'));
-app.use('/api/posts_bang', require('./routes/api/posts_bang'));
 app.use('/api/upload', require('./routes/api/upload'));
 app.use('/api/task', require('./routes/api/task'));
 app.use('/api/upload_bang', require('./routes/api/upload_bang'));
