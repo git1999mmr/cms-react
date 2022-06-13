@@ -2,7 +2,7 @@ const express = require('express');
 //const expressLayouts = require('express-ejs-layouts');
 const connectDB = require('./config/db');
 const path = require('path');
-const cors = require('cors');
+// const cors = require('cors');
 const bodyParser = require('body-parser');
 const api = require('./routes/api/upload');
 const fileUploadRouter = require('./routes/api/upload');
@@ -17,7 +17,7 @@ connectDB();
 
 // Init Middleware
 app.use(express.json({ extended: false }));
-app.use(cors());
+// app.use(cors());
 
 //EJS
 //app.use(expressLayouts);
