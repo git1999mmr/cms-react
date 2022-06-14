@@ -32,7 +32,7 @@ export const TaskBang = () => {
     try {
       const data = await addTask({
         task: currentTask,
-        task_ts: new Date().toLocaleString()
+        task_ts: new Date().toLocaleDateString()
       });
       const tasks = originalTasks;
       tasks.push(data.data);
@@ -121,14 +121,26 @@ export const TaskBang = () => {
         <div style={{ fontWeight: 'light' }}>
           {tasks &&
             tasks.map((task) => (
-              <Paper key={task._id} className="todo_flex task_container">
+              <Paper
+                key={task._id}
+                className="todo_flex task_container"
+                style={{ color: 'red' }}
+              >
                 <Checkbox
                   checked={task.completed}
                   onClick={() => handleUpdate(task._id)}
                   color="primary"
                 />
-                <div> {task.task_ts}</div> <br />
-                <div className={task.completed ? 'task line_through' : 'task'}>
+                <div
+                  style={{ color: 'amber' }}
+                  className={task.completed ? 'task_completed' : 'undefined'}
+                >
+                  {task.task_ts}
+                </div>
+                <br />
+                <div
+                  className={task.completed ? 'task task_completed' : 'task'}
+                >
                   {task.task}
                 </div>
                 <Button
@@ -146,7 +158,7 @@ export const TaskBang = () => {
   );
 };
 
-export const TaskList = () => {
+export const TaskListBang = () => {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
@@ -175,10 +187,22 @@ export const TaskList = () => {
         <div style={{ fontWeight: 'light' }}>
           {tasks &&
             tasks.map((task) => (
-              <Paper key={task._id} className="todo_flex task_container">
+              <Paper
+                key={task._id}
+                className="todo_flex task_container"
+                style={{ color: 'red' }}
+              >
                 <Checkbox checked={task.completed} color="primary" />
-                <div> {task.task_ts}</div> <br />
-                <div className={task.completed ? 'task line_through' : 'task'}>
+                <div
+                  style={{ color: 'amber' }}
+                  className={task.completed ? 'task_completed' : 'undefined'}
+                >
+                  {task.task_ts}
+                </div>
+                <br />
+                <div
+                  className={task.completed ? 'task task_completed' : 'task'}
+                >
                   {task.task}
                 </div>
               </Paper>

@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Paper } from '@material-ui/core';
 import { getUploads } from './uploadServices';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 const axios = require('axios');
+const MySwal = withReactContent(Swal);
 
 const FileUploader = ({ onFileSelectError, onFileSelectSuccess }) => {
   const fileInput = useRef(null);
@@ -38,8 +41,25 @@ export const FilesUploadComponent = (_profileImg, _auth) => {
     //formData.append('profileImg', e.target.value);
     axios
       .post('http://localhost:5000/api/upload', formData, {})
-      .then((res) => {});
-    console.log('Success');
+      .then((res) => {
+        MySwal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Done',
+          text: 'Task uploaded Success!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        console.log('Success');
+      })
+      .catch((err) => {
+        MySwal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Task uploaded Failed!'
+        });
+        console.log('Failed');
+      });
   };
   return (
     <div className="container" style={{ marginTop: '1%', marginBottom: '1%' }}>
@@ -83,11 +103,23 @@ export const UploadList = () => {
   const fetchTasks = async () => {
     try {
       const data = await getUploads();
-      console.log('data === > ', data);
       setUploadlist(data.data.upload);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const getFileName = (profImg) => {
+    var linkFileName = profImg.slice(
+      profImg.lastIndexOf('/') + 1,
+      profImg.length
+    );
+    linkFileName = linkFileName.slice(
+      linkFileName.lastIndexOf('~') + 1,
+      linkFileName.length
+    );
+    console.log(linkFileName);
+    return linkFileName;
   };
 
   useEffect(() => {
@@ -110,7 +142,7 @@ export const UploadList = () => {
               <Paper key={upload._id} className="todo_flex task_container">
                 <div>
                   <a href={upload.profileImg} target="_blank" rel="noreferrer">
-                    {upload.profileImg}
+                    {getFileName(upload.profileImg)}
                   </a>
                 </div>
                 <br />

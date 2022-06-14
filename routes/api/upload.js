@@ -11,9 +11,8 @@ const storage = multer.diskStorage({
     cb(null, DIR);
   },
   filename: (req, file, cb) => {
-    console.log('file is ===>', file.originalname);
     const filename = file.originalname.toLowerCase().split(' ').join('-');
-    cb(null, uuidv4() + '-' + filename);
+    cb(null, uuidv4() + '~~' + filename);
   }
 });
 var upload = multer({
@@ -39,12 +38,12 @@ var upload = multer({
     }
   }
 });
+
 // Upload model
 
 router.post('/upload', upload.single('profileImg'), (req, res, next) => {
   // console.log('call file upload', req);
   const url = req.protocol + '://' + req.get('host');
-  console.log('req===>', req);
   const upload = new Upload({
     _id: new mongoose.Types.ObjectId(),
     filename: req.body.name,

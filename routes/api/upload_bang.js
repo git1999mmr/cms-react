@@ -11,9 +11,8 @@ const storage = multer.diskStorage({
     cb(null, DIR);
   },
   filename: (req, file, cb) => {
-    console.log('file is ===>', file.originalname);
     const filename = file.originalname.toLowerCase().split(' ').join('-');
-    cb(null, uuidv4() + '-' + filename);
+    cb(null, uuidv4() + '~~' + filename);
   }
 });
 var upload_multer = multer({
@@ -41,37 +40,32 @@ var upload_multer = multer({
 });
 // Upload model
 
-router.post(
-  '/upload_bang',
-  upload_multer.single('profileImg'),
-  (req, res, next) => {
-    // console.log('call file upload', req);
-    const url = req.protocol + '://' + req.get('host');
-    console.log('req===>', req);
-    const upload = new UploadBang({
-      _id: new mongoose.Types.ObjectId(),
-      filename: req.body.name,
-      profileImg: url + '/public/' + req.file.filename
-    });
-    upload
-      .save()
-      .then((result) => {
-        res.status(201).json({
-          message: 'Userbglr registered successfully!',
-          userCreated: {
-            _id: result._id,
-            profileImg: result.profileImg
-          }
-        });
-      })
-      .catch((err) => {
-        console.log(err),
-          res.status(500).json({
-            error: err
-          });
+router.post('/', upload_multer.single('profileImg'), (req, res, next) => {
+  // console.log('call file upload', req);
+  const url = req.protocol + '://' + req.get('host');
+  const upload = new UploadBang({
+    _id: new mongoose.Types.ObjectId(),
+    filename: req.body.name,
+    profileImg: url + '/public/' + req.file.filename
+  });
+  upload
+    .save()
+    .then((result) => {
+      res.status(201).json({
+        message: 'Userbglr registered successfully!',
+        userCreated: {
+          _id: result._id,
+          profileImg: result.profileImg
+        }
       });
-  }
-);
+    })
+    .catch((err) => {
+      console.log(err),
+        res.status(500).json({
+          error: err
+        });
+    });
+});
 
 router.get('/', (req, res, next) => {
   UploadBang.find().then((data) => {

@@ -17,7 +17,9 @@ import {
 import Task from '../task/Task';
 import { Fragment } from 'react';
 import { TaskList } from '../task/Task';
-import TaskBang from '../task_bang/TaskBang';
+import { TaskBang, TaskListBang } from '../task_bang/TaskBang';
+
+import { MapApi } from './MapApi';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -67,10 +69,11 @@ const Dashboard = ({
             >
               <i className="fas fa-user" /> Welcome {user && user.name}
             </p>
-            <p style={{ fontWeight: 'bold' }}>({user && user.desc}) </p>
+            <p style={{ fontWeight: 'bold' }}>
+              ({user && user.desc}) at <span>{profile && profile.company}</span>{' '}
+            </p>
             <p className="lead">(location : {user && user.location})</p>
           </h2>
-
           <div
             style={{
               padding: '2%',
@@ -171,7 +174,9 @@ const Dashboard = ({
             >
               <i className="fas fa-user" /> Welcome {user && user.name}
             </p>
-            <p style={{ fontWeight: 'bold' }}>({user && user.desc}) </p>
+            <p style={{ fontWeight: 'bold' }}>
+              ({user && user.desc}) at <span>{profile && profile.company}</span>{' '}
+            </p>
             <p className="lead">(location : {user && user.location})</p>
           </h2>
 
@@ -189,7 +194,7 @@ const Dashboard = ({
             >
               Project Task
             </button>
-            {isShown1 && <FilesUploadComponent />}
+            {isShown1 && <FilesUploadComponentBang />}
           </div>
           <div
             style={{
@@ -206,7 +211,7 @@ const Dashboard = ({
             >
               Project Progress
             </button>
-            {isShown2 && <Task />}
+            {isShown2 && <TaskBang />}
           </div>
 
           <div
@@ -224,7 +229,7 @@ const Dashboard = ({
             >
               View Project Tasks
             </button>
-            {isShown4 && <UploadList />}
+            {isShown4 && <UploadListBang />}
           </div>
 
           {profile !== null ? (
@@ -275,7 +280,9 @@ const Dashboard = ({
             >
               <i className="fas fa-user" /> Welcome {user && user.name}
             </p>
-            <p style={{ fontWeight: 'bold' }}>({user && user.desc}) </p>
+            <p style={{ fontWeight: 'bold' }}>
+              ({user && user.desc}) at <span>{profile && profile.company}</span>{' '}
+            </p>
             <p className="lead">(location : {user && user.location})</p>
           </h2>
 
@@ -380,7 +387,9 @@ const Dashboard = ({
             >
               <i className="fas fa-user" /> Welcome {user && user.name}
             </p>
-            <p style={{ fontWeight: 'bold' }}>({user && user.desc}) </p>
+            <p style={{ fontWeight: 'bold' }}>
+              ({user && user.desc}) at <span>{profile && profile.company}</span>{' '}
+            </p>
             <p className="lead">(location : {user && user.location})</p>
           </h2>
 
@@ -482,7 +491,9 @@ const Dashboard = ({
             >
               <i className="fas fa-user" /> Welcome {user && user.name}
             </p>
-            <p style={{ fontWeight: 'bold' }}>({user && user.desc}) </p>
+            <p style={{ fontWeight: 'bold' }}>
+              ({user && user.desc}) at <span>{profile && profile.company}</span>{' '}
+            </p>
             <p className="lead">(location : {user && user.location})</p>
           </h2>
 
@@ -553,9 +564,185 @@ const Dashboard = ({
             >
               <i className="fas fa-user" /> Welcome {user && user.name}
             </p>
-            <p style={{ fontWeight: 'bold' }}>({user && user.desc}) </p>
+            <p style={{ fontWeight: 'bold' }}>
+              ({user && user.desc}) at <span>{profile && profile.company}</span>{' '}
+            </p>
             <p className="lead">(location : {user && user.location})</p>
           </h2>
+
+          <div
+            style={{
+              padding: '2%',
+              paddingLeft: '0%',
+              paddingTop: '0%'
+            }}
+            id="progress"
+          >
+            <button
+              className="btn btn-primary"
+              onClick={handleClick4}
+              style={{ fontSize: '1.5rem' }}
+            >
+              View Project Tasks
+            </button>
+            {isShown4 && <UploadListBang />}
+          </div>
+          {profile !== null ? (
+            <>
+              <DashboardActions />
+              <Experience experience={profile.experience} />
+              <Education education={profile.education} />
+              <div className="my-2">
+                <button
+                  className="btn btn-danger"
+                  onClick={() => deleteAccount()}
+                >
+                  <i className="fas fa-user-minus" /> Delete My Account
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <p>You have not yet setup a profile, please add some info</p>
+              <Link to="/create-profile" className="btn btn-primary my-1">
+                Create Profile
+              </Link>
+            </>
+          )}
+        </section>
+      </Fragment>
+    );
+  }
+
+  // User in Chennai
+  if ((user && user.role) === 'user' && (user && user.location) === 'chennai') {
+    return (
+      <Fragment>
+        <section className="container">
+          <h1 className="large text-primary" style={{ fontWeight: 'bold' }}>
+            Dashboard
+          </h1>
+          <h2 className="lead" style={{ fontSize: '2rem' }}>
+            <p
+              style={{
+                color: 'darkgreen',
+                fontWeight: 'bold',
+                fontSize: '2.4rem'
+              }}
+            >
+              <i className="fas fa-user" /> Welcome {user && user.name}
+            </p>
+            <p style={{ fontWeight: 'bold' }}>
+              ({user && user.desc}) at <span>{profile && profile.company}</span>{' '}
+            </p>
+            <p className="lead">(location : {user && user.location})</p>
+          </h2>
+
+          <div
+            style={{
+              padding: '2%',
+              paddingLeft: '0%',
+              paddingTop: '0%'
+            }}
+          >
+            <button
+              className="btn btn-primary"
+              onClick={handleClick3}
+              style={{ fontSize: '1.5rem' }}
+            >
+              Project Progress
+            </button>
+            {isShown3 && <TaskList />}
+          </div>
+
+          <div
+            style={{
+              padding: '2%',
+              paddingLeft: '0%',
+              paddingTop: '0%'
+            }}
+            id="progress"
+          >
+            <button
+              className="btn btn-primary"
+              onClick={handleClick4}
+              style={{ fontSize: '1.5rem' }}
+            >
+              View Project Tasks
+            </button>
+            {isShown4 && <UploadList />}
+          </div>
+
+          {profile !== null ? (
+            <>
+              <DashboardActions />
+              <Experience experience={profile.experience} />
+              <Education education={profile.education} />
+              <div className="my-2">
+                <button
+                  className="btn btn-danger"
+                  onClick={() => deleteAccount()}
+                >
+                  <i className="fas fa-user-minus" /> Delete My Account
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <p>You have not yet setup a profile, please add some info</p>
+              <Link to="/create-profile" className="btn btn-primary my-1">
+                Create Profile
+              </Link>
+            </>
+          )}
+        </section>
+      </Fragment>
+    );
+  }
+
+  // User in bangalore
+
+  if (
+    (user && user.role) === 'user' &&
+    (user && user.location) === 'bangalore'
+  ) {
+    return (
+      <Fragment>
+        <section className="container">
+          <h1 className="large text-primary" style={{ fontWeight: 'bold' }}>
+            Dashboard
+          </h1>
+          <h2 className="lead" style={{ fontSize: '2rem' }}>
+            <p
+              style={{
+                color: 'darkgreen',
+                fontWeight: 'bold',
+                fontSize: '2.4rem'
+              }}
+            >
+              <i className="fas fa-user" /> Welcome {user && user.name}
+            </p>
+            <p style={{ fontWeight: 'bold' }}>
+              ({user && user.desc}) at <span>{profile && profile.company}</span>{' '}
+            </p>
+            <p className="lead">(location : {user && user.location})</p>
+          </h2>
+          <div
+            style={{
+              padding: '2%',
+              paddingLeft: '0%',
+              paddingTop: '0%'
+            }}
+          >
+            <button
+              className="btn btn-primary"
+              onClick={handleClick3}
+              style={{ fontSize: '1.5rem' }}
+            >
+              Project Progress
+            </button>
+            {isShown3 && <TaskListBang />}
+          </div>
 
           <div
             style={{
@@ -607,13 +794,13 @@ const Dashboard = ({
         <h1 className="large text-primary" style={{ fontWeight: 'bold' }}>
           Dashboard
         </h1>
-        <p className="lead" style={{ fontSize: '2rem' }}>
-          <h2 style={{ color: 'darkgreen', fontWeight: 'bold' }}>
+        <h2 className="lead" style={{ fontSize: '2rem' }}>
+          <p style={{ color: 'darkgreen', fontWeight: 'bold' }}>
             <i className="fas fa-user" /> Welcome {user && user.name}
-          </h2>
-          <h3 style={{ fontWeight: 'bold' }}>({user && user.desc}) </h3>
-          <h4>(location : {user && user.location})</h4>
-        </p>
+          </p>
+          <p style={{ fontWeight: 'bold' }}>({user && user.desc}) </p>
+          <p>(location : {user && user.location})</p>
+        </h2>
         <div
           style={{
             padding: '2%',
