@@ -19,7 +19,7 @@ import { Fragment } from 'react';
 import { TaskList } from '../task/Task';
 import { TaskBang, TaskListBang } from '../task_bang/TaskBang';
 
-import { MapApi } from './MapApi';
+// import { MapApi } from './MapApi';
 
 const Dashboard = ({
   getCurrentProfile,
@@ -59,6 +59,29 @@ const Dashboard = ({
           <h1 className="large text-primary" style={{ fontWeight: 'bold' }}>
             Dashboard
           </h1>
+          <div className="mapouter">
+            <div
+              className="gmap_canvas"
+              style={{
+                width: '40%',
+                height: '400px',
+                position: 'relative',
+                float: 'right'
+              }}
+            >
+              <iframe
+                width="400"
+                height="500"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=16/40,%20Azeez%20Nagar%202nd%20St,%20Azeez%20Nagar,%20Kodambakkam,%20Chennai,%20Tamil%20Nadu%20600024&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                rel="noreferrer"
+              />
+            </div>
+          </div>
           <h2 className="lead" style={{ fontSize: '2rem' }}>
             <p
               style={{
@@ -74,6 +97,9 @@ const Dashboard = ({
             </p>
             <p className="lead">(location : {user && user.location})</p>
           </h2>
+          <h3 style={{ fontWeight: 'bold' }}>
+            Client - {user && user.client}{' '}
+          </h3>
           <div
             style={{
               padding: '2%',
@@ -164,6 +190,30 @@ const Dashboard = ({
           <h1 className="large text-primary" style={{ fontWeight: 'bold' }}>
             Dashboard
           </h1>
+          <div className="mapouter">
+            <div
+              className="gmap_canvas"
+              style={{
+                width: '40%',
+                height: '400px',
+                position: 'relative',
+                float: 'right'
+              }}
+            >
+              <iframe
+                width="400"
+                height="500"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=13,%20Railway%20Layout,%20Bhogadi,%20Karnataka%20570026&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                rel="noreferrer"
+              />
+            </div>
+          </div>
+
           <h2 className="lead" style={{ fontSize: '2rem' }}>
             <p
               style={{
@@ -179,6 +229,9 @@ const Dashboard = ({
             </p>
             <p className="lead">(location : {user && user.location})</p>
           </h2>
+          <h3 style={{ fontWeight: 'bold' }}>
+            Client - {user && user.client}{' '}
+          </h3>
 
           <div
             style={{
@@ -270,6 +323,31 @@ const Dashboard = ({
           <h1 className="large text-primary" style={{ fontWeight: 'bold' }}>
             Dashboard
           </h1>
+
+          <div className="mapouter">
+            <div
+              className="gmap_canvas"
+              style={{
+                width: '40%',
+                height: '400px',
+                position: 'relative',
+                float: 'right'
+              }}
+            >
+              <iframe
+                width="400"
+                height="500"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=16/40,%20Azeez%20Nagar%202nd%20St,%20Azeez%20Nagar,%20Kodambakkam,%20Chennai,%20Tamil%20Nadu%20600024&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                rel="noreferrer"
+              />
+            </div>
+          </div>
+
           <h2 className="lead" style={{ fontSize: '2rem' }}>
             <p
               style={{
@@ -285,6 +363,9 @@ const Dashboard = ({
             </p>
             <p className="lead">(location : {user && user.location})</p>
           </h2>
+          <h3 style={{ fontWeight: 'bold' }}>
+            Client - {user && user.client}{' '}
+          </h3>
 
           <div
             style={{
@@ -377,6 +458,30 @@ const Dashboard = ({
           <h1 className="large text-primary" style={{ fontWeight: 'bold' }}>
             Dashboard
           </h1>
+          <div className="mapouter">
+            <div
+              className="gmap_canvas"
+              style={{
+                width: '40%',
+                height: '400px',
+                position: 'relative',
+                float: 'right'
+              }}
+            >
+              <iframe
+                width="400"
+                height="500"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=13,%20Railway%20Layout,%20Bhogadi,%20Karnataka%20570026&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                rel="noreferrer"
+              />
+            </div>
+          </div>
+
           <h2 className="lead" style={{ fontSize: '2rem' }}>
             <p
               style={{
@@ -392,6 +497,9 @@ const Dashboard = ({
             </p>
             <p className="lead">(location : {user && user.location})</p>
           </h2>
+          <h3 style={{ fontWeight: 'bold' }}>
+            Client - {user && user.client}{' '}
+          </h3>
 
           <div
             style={{
@@ -481,6 +589,31 @@ const Dashboard = ({
           <h1 className="large text-primary" style={{ fontWeight: 'bold' }}>
             Dashboard
           </h1>
+
+          <div className="mapouter">
+            <div
+              className="gmap_canvas"
+              style={{
+                width: '40%',
+                height: '400px',
+                position: 'relative',
+                float: 'right'
+              }}
+            >
+              <iframe
+                width="400"
+                height="500"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=16/40,%20Azeez%20Nagar%202nd%20St,%20Azeez%20Nagar,%20Kodambakkam,%20Chennai,%20Tamil%20Nadu%20600024&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                rel="noreferrer"
+              />
+            </div>
+          </div>
+
           <h2 className="lead" style={{ fontSize: '2rem' }}>
             <p
               style={{
@@ -496,6 +629,9 @@ const Dashboard = ({
             </p>
             <p className="lead">(location : {user && user.location})</p>
           </h2>
+          <h3 style={{ fontWeight: 'bold' }}>
+            Client - {user && user.client}{' '}
+          </h3>
 
           <div
             style={{
@@ -554,6 +690,31 @@ const Dashboard = ({
           <h1 className="large text-primary" style={{ fontWeight: 'bold' }}>
             Dashboard
           </h1>
+
+          <div className="mapouter">
+            <div
+              className="gmap_canvas"
+              style={{
+                width: '40%',
+                height: '400px',
+                position: 'relative',
+                float: 'right'
+              }}
+            >
+              <iframe
+                width="400"
+                height="500"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=13,%20Railway%20Layout,%20Bhogadi,%20Karnataka%20570026&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                rel="noreferrer"
+              />
+            </div>
+          </div>
+
           <h2 className="lead" style={{ fontSize: '2rem' }}>
             <p
               style={{
@@ -569,6 +730,9 @@ const Dashboard = ({
             </p>
             <p className="lead">(location : {user && user.location})</p>
           </h2>
+          <h3 style={{ fontWeight: 'bold' }}>
+            Client - {user && user.client}{' '}
+          </h3>
 
           <div
             style={{
@@ -622,6 +786,31 @@ const Dashboard = ({
           <h1 className="large text-primary" style={{ fontWeight: 'bold' }}>
             Dashboard
           </h1>
+
+          <div className="mapouter">
+            <div
+              className="gmap_canvas"
+              style={{
+                width: '40%',
+                height: '400px',
+                position: 'relative',
+                float: 'right'
+              }}
+            >
+              <iframe
+                width="400"
+                height="500"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=16/40,%20Azeez%20Nagar%202nd%20St,%20Azeez%20Nagar,%20Kodambakkam,%20Chennai,%20Tamil%20Nadu%20600024&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                rel="noreferrer"
+              />
+            </div>
+          </div>
+
           <h2 className="lead" style={{ fontSize: '2rem' }}>
             <p
               style={{
@@ -712,6 +901,31 @@ const Dashboard = ({
           <h1 className="large text-primary" style={{ fontWeight: 'bold' }}>
             Dashboard
           </h1>
+
+          <div className="mapouter">
+            <div
+              className="gmap_canvas"
+              style={{
+                width: '40%',
+                height: '400px',
+                position: 'relative',
+                float: 'right'
+              }}
+            >
+              <iframe
+                width="400"
+                height="500"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=13,%20Railway%20Layout,%20Bhogadi,%20Karnataka%20570026&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                rel="noreferrer"
+              />
+            </div>
+          </div>
+
           <h2 className="lead" style={{ fontSize: '2rem' }}>
             <p
               style={{
@@ -794,6 +1008,31 @@ const Dashboard = ({
         <h1 className="large text-primary" style={{ fontWeight: 'bold' }}>
           Dashboard
         </h1>
+
+        <div className="mapouter">
+          <div
+            className="gmap_canvas"
+            style={{
+              width: '40%',
+              height: '400px',
+              position: 'relative',
+              float: 'right'
+            }}
+          >
+            <iframe
+              width="400"
+              height="500"
+              id="gmap_canvas"
+              src="https://maps.google.com/maps?q=16/40,%20Azeez%20Nagar%202nd%20St,%20Azeez%20Nagar,%20Kodambakkam,%20Chennai,%20Tamil%20Nadu%20600024&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              frameBorder="0"
+              scrolling="no"
+              marginHeight="0"
+              marginWidth="0"
+              rel="noreferrer"
+            />
+          </div>
+        </div>
+
         <h2 className="lead" style={{ fontSize: '2rem' }}>
           <p style={{ color: 'darkgreen', fontWeight: 'bold' }}>
             <i className="fas fa-user" /> Welcome {user && user.name}

@@ -8,6 +8,7 @@ const ProfileItem = ({
     status,
     company,
     location,
+    client,
     skills
   }
 }) => {

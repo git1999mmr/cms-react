@@ -18,7 +18,6 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import { LOGOUT } from './actions/types';
 import Carousal from './components/layout/Carousal';
 import Social from './components/layout/Social';
-import FilesUploadComponent from './components/upload/FilesUploadComponent';
 
 // Redux
 import { Provider } from 'react-redux';
@@ -30,7 +29,6 @@ import './App.css';
 import { About } from './components/layout/About';
 import { Contact } from './components/layout/Contact';
 import { Privacy } from './components/layout/Privacy';
-import { Task } from './components/task/Task';
 
 const App = () => {
   useEffect(() => {
@@ -63,8 +61,6 @@ const App = () => {
           <Route path="login" element={<Login />} />
           <Route path="profiles" element={<Profiles />} />
           <Route path="profile/:id" element={<Profile />} />
-          <Route path="/files" element={<FilesUploadComponent />} />
-          <Route path="/status" element={<Task />} />
 
           <Route
             path="dashboard"

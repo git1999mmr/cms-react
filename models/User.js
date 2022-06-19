@@ -29,6 +29,11 @@ const UserSchema = new mongoose.Schema({
     required: false,
     default: 'chennai'
   },
+  client: {
+    type: String,
+    required: false,
+    default: 'client'
+  },
   avatar: {
     type: String
   },

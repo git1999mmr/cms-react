@@ -28,6 +28,7 @@ router.post(
         name: user.name,
         avatar: user.avatar,
         role: user.role,
+        client: user.client,
         location: user.location,
         user: req.user.id
       });
@@ -172,6 +173,7 @@ router.post(
         name: user.name,
         avatar: user.avatar,
         role: user.role,
+        client: user.client,
         location: user.location,
         user: req.user.id
       };
